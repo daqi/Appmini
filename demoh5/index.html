@@ -29,8 +29,9 @@
 			<div class="sub-page">
 				<div class="m-img" style="background:url(img/1-1.jpg) center top no-repeat;"></div>
 
-				<div class="indexmain"></div>
-
+<!-- 				<div class="indexmain"></div>
+ -->
+ 				<div class="shuizhi"></div>
 				<img data-share-logo="" src="img/1-1.jpg" style="display:none;">
 			</div>
 			<div class="sub-page">
@@ -302,17 +303,32 @@
 		</section>
 		<section class="m-page">
 			<div class="m-img lazy-bk" data-bk="img/6-1.jpg"></div>
-			<div class="tplview">
-				<img src="img/tpl1.jpg" alt="">
+			<div class="tplchoose">
+				<form action="haibao.html" method="post">
+					<div class="tplview">
+						<img src="img/tpl1.jpg" alt="">
+						<input name="tplimg" id="tplimg" type="hidden">
+					</div>
+					<div class="tpltext">
+						<div class="label">输入你在想的美事</div>
+						<div class="inputtext"><input name="tpltxt" type="text"></div>
+					</div>
+					<div class="templatelist">
+						<div class="tpllisttitle">选择下面您喜欢的模板，可以生成净想美事海报</div>
+						<div class="tpllist">
+							<div class="tmp" id="tpllist">
+							<ul class="clearfix">
+								<li><img src="img/tpl1.jpg" alt=""></li>
+								<li><img src="img/tpl1.jpg" alt=""></li>
+								<li><img src="img/tpl1.jpg" alt=""></li>
+								<li><img src="img/tpl1.jpg" alt=""></li>
+							</ul>
+							</div>
+						</div>
+					</div>
+					<button class="tplallowbtn"></button>
+				</form>
 			</div>
-			<div class="tpltext">
-				<div class="label">输入你在想的美事</div>
-				<div class="inputtext"><input type="text"></div>
-			</div>
-			<div class="templates">
-				
-			</div>
-			<div class="tplallowbtn"></div>
 		</section>
 		<section class="pageLoading"><img src="img/load.gif" alt="loading"></section>
 	</section>
@@ -473,7 +489,7 @@
 		<div class="jiangcontentbox">
 			<div class="jmain">
 				<div class="jtitle"></div>
-				<div class="jdesc">台面净水器一台</div>
+				<div class="jdesc">水质检测器一个</div>
 				<div class="jpic" style="background:url(img/jiang2.png) no-repeat 50% 50%;"></div>
 				<div class="jtip">凭此获奖截图与官方微信客服联系<br/>领取您的奖品</div>
 			</div>
@@ -483,7 +499,7 @@
 		<div class="jiangcontentbox">
 			<div class="jmain">
 				<div class="jtitle"></div>
-				<div class="jdesc">水质检测器一个</div>
+				<div class="jdesc">飞利浦净水龙头一台</div>
 				<div class="jpic" style="background:url(img/jiang3.png) no-repeat 50% 50%;"></div>
 				<div class="jtip">凭此获奖截图与官方微信客服联系<br/>领取您的奖品</div>
 			</div>
@@ -493,7 +509,7 @@
 		<div class="jiangcontentbox">
 			<div class="jmain">
 				<div class="jtitle"></div>
-				<div class="jdesc">飞利浦净水壶一台</div>
+				<div class="jdesc">台面净水器一台</div>
 				<div class="jpic" style="background:url(img/jiang4.png) no-repeat 50% 50%;"></div>
 				<div class="jtip">凭此获奖截图与官方微信客服联系<br/>领取您的奖品</div>
 			</div>
@@ -503,7 +519,7 @@
 		<div class="jiangcontentbox">
 			<div class="jmain">
 				<div class="jtitle"></div>
-				<div class="jdesc">飞利浦净水龙头一台</div>
+				<div class="jdesc">飞利浦净水壶一台</div>
 				<div class="jpic" style="background:url(img/jiang5.png) no-repeat 50% 50%;"></div>
 				<div class="jtip">凭此获奖截图与官方微信客服联系<br/>领取您的奖品</div>
 			</div>
@@ -523,6 +539,35 @@
 		<div class="havenochance">
 			<span>尊敬的用户您好</span><br />
 			您今天的抽奖次数已经用完啦！
+		</div>
+	</div>
+	<div class="jiangpopup homejiang">
+		<div class="jiangcontentbox">
+			<div class="jmain">
+				<div class="jtitle"></div>
+				<div class="jdesc">水质检测器一个</div>
+				<div class="jpic" style="background:url(img/jiang2.png) no-repeat 50% 50%;"></div>
+				<div class="jform">
+				<form id="homejiangform" action="" method="post">
+					<div class="jformtitle">请输入您的信息</div>
+					<div class="jformitem clearfix">
+						<div class="label fl">姓名</div>
+						<div class="textinput fl"><input name="realname" class="w390" type="text"></div>
+					</div>
+					<div class="jformitem clearfix">
+						<div class="label fl">电话</div>
+						<div class="textinput fl"><input name="phone" class="w390" type="text"></div>
+					</div>
+					<div class="jformitem clearfix">
+						<div class="label fl">联系地址</div>
+						<div class="textarea fl"><textarea name="address" class="w390"></textarea></div>
+					</div>
+					<div class="jformitem clearfix">
+						<button type="submit" class="fr">提交</button>
+					</div>
+				</form>
+				</div>
+			</div>
 		</div>
 	</div>
 <script type="text/javascript" src="js/iscroll.js"></script>

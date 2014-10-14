@@ -41,7 +41,30 @@ function textbox1_3() {
         iscrolls["1-3"].refresh();
     };
 }
+function tpllist(){
+    if (typeof iscrolls["tpllist"] == "undefined") {
+        iscrolls["tpllist"] = new IScroll("#tpllist", {
+            bounce: false,
+            useTransition: false,
+            preventDefault: true,
+            scrollbars: false,
+            scrollX: true,
+            scrollY: false,
+            click:true
+        });
+    } else {
+        iscrolls["tpllist"].refresh();
+    };
+}
 $(function() {
+    $("#tpllist img").on("click",function(){
+        var _src = $(this).attr("src");
+        $(".tplview img").attr("src",_src);
+        $("#tplimg").val(_src);
+    });
+    $(".shuizhi").click(function(){
+        $(".homejiang").show();
+    });
     $(".product1 .fav").click(function(){
         $(".favpopup1").show();
     });
@@ -96,9 +119,14 @@ $(function() {
     $(".detailpopup .close").click(function(){
         $(this).closest(".detailpopup").hide();
     });
-    $(".jiangpopup").click(function(){
-        $(this).hide();
+    $(".jiangpopup").click(function(e){
+        if($(e.target).closest(".jform").length == 0 ){
+            $(this).hide();
+        }
     });
+    $("#homejiangform").submit(function(){
+        return false;
+    }); 
     var likeA = false;
     $(".likebtn").on("click", function() {
         var that = $(this);
@@ -126,7 +154,7 @@ $(function() {
         $(".zhizhen").rotate({
             angle: 0,
             duration: 5000,
-            animateTo: angle + 720, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
+            animateTo: angle + 1440, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
             callback: function() {
                 if (awards!=0) {
                     $(".jiang"+(awards)).show();
@@ -328,7 +356,7 @@ var PAGEY = (function() {
         e.preventDefault();
         //e.stopPropagation();
 
-        if ($(e.target).closest('#textbox2-2').length == 0 && $(e.target).closest('#textbox3-2').length == 0 && $(e.target).closest('#textbox1-3').length == 0) {
+        if ($(e.target).closest('#tpllist').length == 0 && $(e.target).closest('#textbox2-2').length == 0 && $(e.target).closest('#textbox3-2').length == 0 && $(e.target).closest('#textbox1-3').length == 0) {
             //判断是否开始或者在移动中获取值
             if (start || startM) {
                 startM = true;
@@ -372,6 +400,7 @@ var PAGEY = (function() {
                         } else {
                             move = false;
                         }
+                        tpllist();
                     }
                 }
 
