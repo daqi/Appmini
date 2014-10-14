@@ -27,7 +27,30 @@ function textbox3_2() {
         iscrolls["3-2"].refresh();
     };
 }
+
+function textbox1_3() {
+    if (typeof iscrolls["1-3"] == "undefined") {
+        iscrolls["1-3"] = new IScroll("#textbox1-3", {
+            bounce: false,
+            useTransition: false,
+            preventDefault: true,
+            scrollbars: "custom",
+            fadeScrollbars: false
+        });
+    } else {
+        iscrolls["1-3"].refresh();
+    };
+}
 $(function() {
+    $(".product1 .fav").click(function(){
+        $(".favpopup1").show();
+    });
+    $(".product2 .fav").click(function(){
+        $(".favpopup2").show();
+    });
+    $(".favpopup .close").click(function(){
+        $(this).closest(".favpopup").hide();
+    });
     $(".sharebtn").on("click", function() {
         $(".sharetip").show();
     });
@@ -35,23 +58,32 @@ $(function() {
         $(this).hide();
     });
     $(".showmenu").on("click", function() {
-        if (parseInt($(".menu").css("top")) != 0) {
-            $(".menu").animate({
-                    top: 0
-                },
-                200, function() {
-                    $(".showmenu").removeClass("showmenu-animate");
-                });
+        if (parseInt($(".menu").css("height")) != 80) {
+            $(".showmenu").animate({
+                height:230
+            },200, function() {
+                $(".showmenu").removeClass("showmenu-animate");
+            });
+            $(".headx").css({"z-index": 3,"position": "relative"});
+            $(".menu").css({"z-index": 4,"position": "relative"}).animate({
+                height: 80
+            },
+            200);
         };
     });
     $("body").on("touchend click", function(e) {
-        if (parseInt($(".menu").css("top")) == 0) {
-            $(".menu").animate({
-                    top: -88
-                },
-                200, function() {
-                    $(".showmenu").addClass("showmenu-animate");
-                });
+        if (parseInt($(".menu").css("height")) == 80 && $(e.target).closest(".showddmenu").length == 0 || $(e.target).closest(".submenu").length != 0) {
+            $(".showmenu").animate({
+                height:150
+            },200, function() {
+                $(".showmenu").addClass("showmenu-animate");
+            });
+            $(".headx").css({"z-index": 1,"position": "relative"});
+            $(".menu").css({"z-index": 1,"position": "relative","overflow":"hidden"}).animate({
+                height: 0
+            },
+            200);
+            $(".submenu").hide();
         }
     });
     $(".zhuanbtn,.choujiang").click(function() {
@@ -63,6 +95,9 @@ $(function() {
     });
     $(".detailpopup .close").click(function(){
         $(this).closest(".detailpopup").hide();
+    });
+    $(".jiangpopup").click(function(){
+        $(this).hide();
     });
     var likeA = false;
     $(".likebtn").on("click", function() {
@@ -91,9 +126,13 @@ $(function() {
         $(".zhizhen").rotate({
             angle: 0,
             duration: 5000,
-            animateTo: angle + 1440, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
+            animateTo: angle + 720, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
             callback: function() {
-                alert(text)
+                if (awards!=0) {
+                    $(".jiang"+(awards)).show();
+                }else{
+                    alert(text);
+                };
             }
         });
     };
@@ -101,27 +140,34 @@ $(function() {
     $(".zhizhen").rotate({
         bind: {
             click: function() {
-                var time = [0, 1];
+                var time = [0, 1 ,2];
                 time = time[Math.floor(Math.random() * time.length)];
                 if (time == 0) {
                     timeOut(); //网络超时
                 }
+                if (time == 2) {
+                    $(".jiangx").show();
+                }
                 if (time == 1) {
-                    var data = [1, 2, 3, 0]; //返回的数组
+                    var data = [1, 2, 3, 4, 5, 0]; //返回的数组
                     data = data[Math.floor(Math.random() * data.length)];
                     if (data == 1) {
-                        rotateFunc(1, 157, '恭喜您抽中的一等奖')
+                        rotateFunc(data, 330)
                     }
                     if (data == 2) {
-                        rotateFunc(2, 247, '恭喜您抽中的二等奖')
+                        rotateFunc(data, 30)
                     }
                     if (data == 3) {
-                        rotateFunc(3, 22, '恭喜您抽中的三等奖')
+                        rotateFunc(data, 90)
+                    }
+                    if (data == 4) {
+                        rotateFunc(data, 150)
+                    }
+                    if (data == 5) {
+                        rotateFunc(data, 210)
                     }
                     if (data == 0) {
-                        var angle = [67, 112, 202, 292, 337];
-                        angle = angle[Math.floor(Math.random() * angle.length)]
-                        rotateFunc(0, angle, '很遗憾，这次您未抽中奖')
+                        rotateFunc(data, 270, '很遗憾，这次您未抽中奖')
                     }
                 }
             }
@@ -129,7 +175,7 @@ $(function() {
 
     });
 });
-(function() {
+var PAGEY = (function() {
     /*
      ** 变量值
      */
@@ -282,7 +328,7 @@ $(function() {
         e.preventDefault();
         //e.stopPropagation();
 
-        if ($(e.target).closest('#textbox2-2').length == 0 && $(e.target).closest('#textbox3-2').length == 0) {
+        if ($(e.target).closest('#textbox2-2').length == 0 && $(e.target).closest('#textbox3-2').length == 0 && $(e.target).closest('#textbox1-3').length == 0) {
             //判断是否开始或者在移动中获取值
             if (start || startM) {
                 startM = true;
@@ -401,7 +447,7 @@ $(function() {
          ** 切换成功回调的函数
          */
         //设置页面的出现
-        $(".m-page").eq(page_n - 1).removeClass("show active").addClass("hide").find(".ani").hide();
+        $(".m-page").eq(page_n - 1).removeClass("show active").addClass("hide").find(".ani");
         $(".m-page").eq(newM - 1).removeClass("active hide").addClass("show").find(".ani").show();
 
         // 滑动成功加载多面的图片
@@ -411,6 +457,9 @@ $(function() {
         page_n = newM;
         start = true;
 
+        PAGEX[0].gotopageX(1);
+        PAGEX[1].gotopageX(1);
+        PAGEX[2].gotopageX(1);
     }
 
     /*
@@ -470,4 +519,16 @@ $(function() {
         $(window).on('load', _orientationchange);
     });
 
-})()
+    return {
+        gotopageY : function(page){
+            if (!$(".m-page").eq(page-1).hasClass("show")) {
+                $(".m-page").eq(page-1).css("top", v_h).animate({
+                    'top': 0
+                }, 300, "easeOutSine", function() {
+                    newM = page;
+                    success();
+                })
+            };
+        }
+    }
+})();

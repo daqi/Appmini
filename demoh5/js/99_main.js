@@ -1,6 +1,6 @@
-;
-$(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2)").each(function() {
-    (function(parent) {
+var PAGEX=[];
+$(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2)").each(function(__i) {
+    PAGEX[__i] = (function(parent) {
         /*
          ** 变量值
          */
@@ -84,10 +84,10 @@ $(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2)").each(function() {
 
         //触摸移动（鼠标移动）开始函数
         function page_touchmove(e) {
-            if (page_n != 1 && $(e.target).closest('#textbox2-2').length == 0 && $(e.target).closest('#textbox3-2').length == 0) {
-                e.preventDefault();
-                e.stopPropagation();
-            };
+            // if (/*page_n != 1 &&*/ $(e.target).closest('#textbox2-2').length == 0 && $(e.target).closest('#textbox3-2').length == 0) {
+            //     e.preventDefault();
+            //     e.stopPropagation();
+            // };
             //判断是否开始或者在移动中获取值
             if (start || startM) {
                 startM = true;
@@ -131,6 +131,7 @@ $(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2)").each(function() {
                         }
                         textbox2_2();
                         textbox3_2();
+                        textbox1_3();
                     }
                 }
 
@@ -234,22 +235,46 @@ $(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2)").each(function() {
             if (RegExp("iPhone").test(navigator.userAgent) || RegExp("iPod").test(navigator.userAgent) || RegExp("iPad").test(navigator.userAgent)) $('.sub-page').css('height', '101%');
         }(initPage());
 
-        $(function() {
-
-            $(".showdetail").on("click", function() {
-                $(".sub-page").eq(1).css("left", v_w).addClass("active").animate({
-                    'left': 0
-                }, 300, "easeOutSine", function() {
-                    $(".sub-page").eq(0).removeClass("show").addClass("hide");
-                    $(this).removeClass("active").addClass("show").removeClass("hide");
-                    page_n = 2;
-                })
-
-            })
-
-
-
-        })
+        return {
+            gotopageX : function(page){
+                if (!parent.find(".sub-page").eq(page-1).hasClass("show")) {
+                    parent.find(".sub-page").eq(page-1).css("left", v_w).animate({
+                        'left': 0
+                    }, 300, "easeOutSine", function() {
+                        newM = page;
+                        success();
+                    })
+                };
+            }
+        }
 
     })($(this));
+});
+
+$(function() {
+    $(".showdetail").on("touchstart", function() {
+        PAGEY.gotopageY(1);
+        PAGEX[0].gotopageX(2);
+    });
+    $(".showhome").on("touchstart", function() {
+        PAGEY.gotopageY(1);
+        PAGEX[0].gotopageX(1);
+    });
+    $(".showpplist").on("touchstart", function() {
+        PAGEY.gotopageY(1);
+        PAGEX[0].gotopageX(3);
+    });
+    $(".showddmenu").on("touchstart",function(){
+        $(".menu").css("overflow","visible");
+        $(".submenu").show();
+    });
+    $(".menuact1").on("touchstart", function() {
+        PAGEY.gotopageY(4);
+    });
+    $(".menuact2").on("touchstart", function() {
+        PAGEY.gotopageY(5);
+    });
+    $(".menuact3").on("touchstart", function() {
+        PAGEY.gotopageY(6);
+    });
 });
