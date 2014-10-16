@@ -61,20 +61,54 @@ $(function() {
 
 
 $(function() {
-    var myscroll = null;
     var windowWidth = $(window).innerWidth();
     var windowHeight = $(window).innerHeight();
-    $(".huojiangmodal").width(windowWidth).height(windowHeight + 10);
+    $(".guizepopupbg").width(windowWidth).height(windowHeight + 10);
+    $(".homejiang").width(windowWidth).height(windowHeight + 10);
     $(window).resize(function(event) {
         windowWidth = $(window).innerWidth();
         windowHeight = $(window).innerHeight();
-        $(".huojiangmodal").width(windowWidth).height(windowHeight + 10);
+        $(".guizepopupbg").width(windowWidth).height(windowHeight + 10);
+        $(".homejiang").width(windowWidth).height(windowHeight + 10);
     });
-    $(".close").on("click", function() {
-        $(".huojiangmodal").hide();
+    $(".guizeli .cbtn").click(function(){
+        windowWidth = $(window).innerWidth()+30;
+        windowHeight = $(window).innerHeight()+30;
+        var index = $(".guizeli .detail").index($(this).closest(".detail"));
+        if (index>=0) {
+            $(".guizepopupbg").eq(index).show().css("top",$("body").scrollTop());
+            $("body").css({
+                "height": windowHeight,
+                "overflow": "hidden"
+            });
+            $(".footer").hide();
+            windowWidth = $(window).innerWidth();
+            windowHeight = $(window).innerHeight();
+            $(".guizepopupbg").width(windowWidth).height(windowHeight + 10);
+        };
+
+    });
+
+    $(".homejiangbtn").click(function(){
+        windowWidth = $(window).innerWidth()+30;
+        windowHeight = $(window).innerHeight()+30;
+            $(".homejiang").show();
+            $("body").css({
+                "height": windowHeight,
+                "overflow": "hidden"
+            });
+            $(".footer").hide();
+            windowWidth = $(window).innerWidth();
+            windowHeight = $(window).innerHeight();
+            $(".homejiang").width(windowWidth).height(windowHeight + 10);
+
+    });
+    $(".guizepopupbg .close").on("click", function() {
+        $(".guizepopupbg").hide();
         $("body").css({
             "height": "auto",
-            "overflow": "auto"
+            "overflow-y": "auto"
         });
+        $(".footer").show();
     });
 });
