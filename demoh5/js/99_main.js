@@ -1,5 +1,5 @@
 var PAGEX=[];
-$(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2)").each(function(__i) {
+$(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2),.m-page:eq(5)").each(function(__i) {
     PAGEX[__i] = (function(parent) {
         /*
          ** 变量值
@@ -252,15 +252,15 @@ $(".m-page:eq(0),.m-page:eq(1),.m-page:eq(2)").each(function(__i) {
 });
 
 $(function() {
-    $(".showdetail").on("touchstart", function() {
+    $(".showdetail").on("touchstart click", function() {
         PAGEY.gotopageY(1);
         PAGEX[0].gotopageX(2);
     });
-    $(".showhome").on("touchstart", function() {
+    $(".showhome").on("touchstart click", function() {
         PAGEY.gotopageY(1);
         PAGEX[0].gotopageX(1);
     });
-    $(".showpplist").on("touchstart", function() {
+    $(".showpplist").on("touchstart click", function() {
         PAGEY.gotopageY(1);
         PAGEX[0].gotopageX(3);
     });
@@ -268,13 +268,13 @@ $(function() {
         $(".menu").css("overflow","visible");
         $(".submenu").show();
     });
-    $(".menuact1").on("touchstart", function() {
+    $(".menuact1").on("touchstart click", function() {
         PAGEY.gotopageY(4);
     });
-    $(".menuact2").on("touchstart", function() {
+    $(".menuact2").on("touchstart click", function() {
         PAGEY.gotopageY(5);
     });
-    $(".menuact3").on("touchstart", function() {
+    $(".menuact3").on("touchstart click", function() {
         PAGEY.gotopageY(6);
     });
 });

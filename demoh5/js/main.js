@@ -57,6 +57,9 @@ function tpllist(){
     };
 }
 $(function() {
+    $(".homejiang .cancel").click(function(){
+        $(".homejiang").hide();
+    });
     $("#tpllist img").on("click",function(){
         var _src = $(this).attr("src");
         $(".tplview img").attr("src",_src);
@@ -64,6 +67,9 @@ $(function() {
     });
     $(".shuizhi").click(function(){
         $(".homejiang").show();
+        $(".jiangcontentbox").show();
+        $(".successbox").hide();
+        $(".falsebox").hide();
     });
     $(".product1 .fav").click(function(){
         $(".favpopup1").show();
@@ -94,7 +100,7 @@ $(function() {
             200);
         };
     });
-    $("body").on("touchend click", function(e) {
+    $("body").on("touchend", function(e) {
         if (parseInt($(".menu").css("height")) == 80 && $(e.target).closest(".showddmenu").length == 0 || $(e.target).closest(".submenu").length != 0) {
             $(".showmenu").animate({
                 height:150
@@ -125,6 +131,9 @@ $(function() {
         }
     });
     $("#homejiangform").submit(function(){
+        $(".jiangcontentbox").hide();
+        $(".successbox").show();
+        //$(".falsebox").show();
         return false;
     }); 
     var likeA = false;

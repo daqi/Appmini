@@ -39,49 +39,19 @@ $(function() {
 });
 
 $(function() {
-    $(".nav .last").on("mouseover", function() {
-        $(".qrcode").show();
+    $(".nav .nav5").on("mouseover", function() {
+        $(".haibaodd").show();
     }).on("mouseout", function() {
-        $(".qrcode").hide();
+        $(".haibaodd").hide();
     });
 });
 
-$(function() {
-    if ($(".baogaocontent").length) {
-        new IScroll(".baogaocontent", {
-            bounce: false,
-            useTransition: false,
-            scrollbars: "custom",
-            fadeScrollbars: false,
-            mouseWheel: true,
-            interactiveScrollbars: true
-        });
-    };
-});
 
 $(function() {
     var myscroll = null;
     var windowWidth = $(window).innerWidth();
     var windowHeight = $(window).innerHeight();
     $(".huojiangmodal").width(windowWidth).height(windowHeight + 10);
-    $(".amingdan").click(function() {
-        if ($(".huojiangmodal").css("display") == "none") {
-            $(".huojiangmodal").width(windowWidth).height(windowHeight + 10).show();
-            $("body").height(windowHeight).css("overflow", "hidden");
-            if ($(".huojiang").length && !myscroll) {
-                myscroll = new IScroll(".huojiang .ccontent", {
-                    bounce: false,
-                    useTransition: false,
-                    scrollbars: "custom",
-                    fadeScrollbars: false,
-                    mouseWheel: true,
-                    interactiveScrollbars: true
-                });
-            };
-        } else {
-
-        };
-    });
     $(window).resize(function(event) {
         windowWidth = $(window).innerWidth();
         windowHeight = $(window).innerHeight();
