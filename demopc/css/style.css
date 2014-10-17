@@ -83,8 +83,11 @@ margin-top: -101px;}
 .productlink2{display:block;width:220px;height:230px;float:left;margin:17px 0 0 30px;}
 
 .guizewarp{padding-bottom:169px;background: #a60210;}
-.guizewp{width:730px;padding: 40px 60px 46px 54px;margin:0 auto;border-radius:0 0 20px 20px;box-shadow:2px 5px 5px 5px rgba(0,0,0,.3);background: url(../img/2_bg.jpg) no-repeat 0 0;}
-.guizedesc{font-size:18px;color:#a62025;text-align: center;}
+.guizewp{width:730px;padding: 66px 60px 46px 54px;margin:0 auto;border-radius:0 0 20px 20px;box-shadow:2px 5px 5px 5px rgba(0,0,0,.3);background: url(../img/2_bg.jpg) no-repeat 0 0;}
+.guizedesc{position:relative;height:122px;font-size:18px;color:#a62025;text-align: center;}
+.tmall1{position:absolute;width:131px;height:41px;right:0;top:0;}
+.tmall2{position:absolute;width:131px;height:41px;right:0;top:52px;}
+
 .guizetabs{margin:24px 0 10px;}
 .guizetabs .guizepc{float:right;width:133px;height:34px;margin-right:11px;background: url(../img/guizetabs.png) no-repeat 0 0;cursor:pointer;}
 .guizetabs .guizeh5{float:right;width:113px;height:34px;background: url(../img/guizetabs.png) no-repeat 100% 0;cursor:pointer;}
