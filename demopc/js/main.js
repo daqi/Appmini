@@ -57,6 +57,11 @@ $(function() {
     }).on("mouseout", function() {
         $(".haibaodd").hide();
     });
+    $(".nav .last").on("mouseover", function() {
+        $(".qrcodedd").show();
+    }).on("mouseout", function() {
+        $(".qrcodedd").hide();
+    });
 });
 
 

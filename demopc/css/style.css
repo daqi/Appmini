@@ -25,7 +25,7 @@ legend, hr { overflow:hidden; position:absolute; top:0; left:0}
 legend, hr, caption { visibility:hidden; font-size:0; width:0; height:0; line-height:0}
 
 html { width: 100%; }
-body { background:#fff; font-family:"微软雅黑"; }
+body { background:#fff; font-family:"微软雅黑"; background-color:#a60210;}
 
 .clearfix:after { display: table; content:" "; clear:both; }
 .clearfix{zoom:1;}
@@ -55,13 +55,13 @@ margin-top: -101px;}
 .nav .home .ahome{display:block;width:230px;height:66px;padding:0;background:none;text-indent:-9999px;}
 .nav .last .ameishi{padding-left:48px;position:relative;background-position: 31px 50%;}
 
-
 .nav li .ahaibao{position: relative;z-index: 2;/*padding-bottom:20px;*/}
 .haibaodd{z-index:1;top:52px;right:146px;display:none;width:190px;border-bottom:3px solid #00a0e9;background:#6a0000;}
 .haibaodd .li{color:#fff;margin:0 40px;text-align:center;font-size:18px;}
 .haibaodd .li a{background:none;padding:0;}
 .haibaodd .li:first-child{border-bottom:1px solid #fff;}
-
+.nav .active a,
+.nav a:hover{text-shadow: 0 0 10px #fffc00;}
 
 .quanmain{top:0;left:0;padding-left:103px;}
 .quanli{margin-bottom:8px;background:#fff;box-shadow: 3px 0 10px -3px #b29f8c,-3px 0 10px -3px #b29f8c, 0 3px 10px -3px #b29f8c, 0 -3px 10px -3px #b29f8c;}
@@ -79,7 +79,9 @@ margin-top: -101px;}
 .zan span{font-size:30px;font-family: Impact;color:rgba(255,233,126,.5);line-height: 31px;text-shadow:0px 0px 0 #ffcf00,2px 2px 0 #c03902;}
 .zan i{font-size:23px;color:#fff;position:relative;top:-2px;left:10px;}
 
-#huodongguize,#haibaofenxiang{background:#a60210;}
+.productlink1{display:block;width:220px;height:230px;float:left;margin:17px 0 0 276px;}
+.productlink2{display:block;width:220px;height:230px;float:left;margin:17px 0 0 30px;}
+
 .guizewarp{padding-bottom:169px;background: #a60210;}
 .guizewp{width:730px;padding: 40px 60px 46px 54px;margin:0 auto;border-radius:0 0 20px 20px;box-shadow:2px 5px 5px 5px rgba(0,0,0,.3);background: url(../img/2_bg.jpg) no-repeat 0 0;}
 .guizedesc{font-size:18px;color:#a62025;text-align: center;}
@@ -112,8 +114,8 @@ margin-top: -101px;}
 .guizepopup .pcpopbtm2{position: absolute;bottom:90px;width:100%;height:348px;background: url(../img/pcpopbtm2.png) no-repeat 50% 0;}
 .xlweibologin,
 .qqweibologin{position: absolute;top:25px;width:110px;height:110px;}
-.xlweibologin{left:317px;}
-.qqweibologin{left:484px;}
+.xlweibologin{left:396px;}
+.qqweibologin{left:484px;display: none;}
 .guizepopup .pcpopbtm2 .product1,
 .guizepopup .pcpopbtm2 .product2{position: absolute;top:0;width:349px;height:296px;}
 .guizepopup .pcpopbtm2 .product1{left:105px;}
@@ -185,11 +187,12 @@ margin-top: -101px;}
 .haibaodetailimageswitch .pageBtn .prev{left:-35px;}
 .haibaodetailimageswitch .pageBtn .next{right:-35px;}
 .haibaodetailimageswitch .pageBtn .list{display: none;}
-/*
-.qrcode{z-index:1;top:52px;right:6px;display:none;width:160px;height:112px;border-bottom:3px solid #00a0e9;background:#6a0000;}
-.qrcode li{float:left;color:#fff;margin-left:12px;}
-.qrcode li p{line-height:35px;text-align:center;}
-.qrcode li img{width:60px;height:60px;}*/
+
+.qrcodedd{z-index:1;top:52px;right:0;display:none;width:146px;height:137px;text-align:center;border-bottom:3px solid #00a0e9;background:#6a0000;}
+.qrcodedd{color:#fff;margin-left:12px;}
+.qrcodedd p{line-height:35px;text-align:center;}
+.qrcodedd img{width:89px;height:89px;}
+
 .huojiangwp{width:886px;margin:0 auto;background:url(../img/huojiangbgy.png) repeat-y 50% 0;box-shadow:0 0 11px 1px rgba(0,0,0,0.45);}
 .huojiang {width:785px;margin:0 auto;}
 .huojiang .ctitle{padding-top:20px;width:100%;height:64px;border-bottom:2px solid #a62025;line-height:64px;font-size:26px;color:#a62025;text-align:center;}
@@ -197,7 +200,7 @@ margin-top: -101px;}
 .huojiang .huojianglist li{float:left;width:20%;height:22px;}
 
 .huojiangbtm{width:1000px;height:191px;padding-top:28px;background:url(../images/3_btm.jpg) no-repeat 0 0;}
-.huojiangbtm .back{width:90px;height:50px;margin:0 auto;}
+.huojiangbtm .back{width:90px;height:50px;margin:0 auto;background:#ffe5c9 url(../img/back.png) no-repeat 50% 50%;}
 
 .homeshare{top:0;width:100%;}
 .homeshare .bdsharebuttonbox{width:186px;float:right;}
@@ -215,10 +218,10 @@ margin-top: -101px;}
 .homeshare .bdsharebuttonbox .bds_weixin,
 .haibaoshare .bdsharebuttonbox .bds_weixin{background:url(../img/sharebtn.png) no-repeat -113px 2px;}
 
-.homeshare .bdsharebuttonbox .bds_more,
-.haibaoshare .bdsharebuttonbox .bds_more{background:none;padding-left:0;margin-left:-15px;}
-.homeshare .bdsharebuttonbox .bds_more:after,
-.haibaoshare .bdsharebuttonbox .bds_more:after{content:"分享到: ";font-size:12px;color:#fff;}
+.homeshare .bdsharebuttonbox .bds_morex,
+.haibaoshare .bdsharebuttonbox .bds_morex{background:none;padding-left:0;margin-left:-15px;}
+.homeshare .bdsharebuttonbox .bds_morex:after,
+.haibaoshare .bdsharebuttonbox .bds_morex:after{content:"分享到: ";font-size:12px;color:#fff;}
 
 .homeshare .bdsharebuttonbox a:hover,
 .haibaoshare .bdsharebuttonbox a:hover{background-color:rgba(255,255,255,.5);opacity: 1;}
@@ -238,6 +241,7 @@ margin-top: -101px;}
 .homejiang button{width:96px;height:34px;border:0;padding:0;margin-right:10px;margin-top:15px;border-bottom:2px solid #002538;font-size:14px;line-height: 32px;text-align: center;font-family: "微软雅黑";color:#0091db;background:#dadfe3;}
 .w540{width:540px;}
 .homejiang .cancel {margin-right:30px;}
+.homejiang .star{height:30px;margin-top: 20px;padding-left:20px;line-height:30px;color:#fff;background:url(../img/star.png) no-repeat 0 50%;}
 
 .successbox{display:none;width: 670px;padding:40px;margin:50px auto 0;text-align:center;color:#fff;background: url(../img/dotbg.gif) repeat 0 0;}
 .successbox .dv_txt{margin-top:10px;font-size:1.2px;}
