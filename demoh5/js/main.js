@@ -490,14 +490,16 @@ var PAGEY = (function() {
 
         // 滑动成功加载多面的图片
         lazy_bigP();
-
+        for (var i = 0; i < 3; i++) {
+            if (newM - 1 != i) {
+                PAGEX[i].gotopageX(1);
+            }
+        };
+        
         //重新设置页面移动的控制值
         page_n = newM;
         start = true;
 
-        PAGEX[0].gotopageX(1);
-        PAGEX[1].gotopageX(1);
-        PAGEX[2].gotopageX(1);
     }
 
     /*

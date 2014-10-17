@@ -268,13 +268,16 @@ $(function() {
         $(".menu").css("overflow","visible");
         $(".submenu").show();
     });
-    $(".menuact1").on("touchstart click", function() {
+    $(".menuact1,.canjiabtn1").on("touchstart click", function() {
         PAGEY.gotopageY(4);
     });
-    $(".menuact2").on("touchstart click", function() {
+    $(".menuact2,.canjiabtn2").on("touchstart click", function() {
         PAGEY.gotopageY(5);
     });
-    $(".menuact3").on("touchstart click", function() {
+    $(".menuact3,.canjiabtn3").on("touchstart click", function() {
         PAGEY.gotopageY(6);
+    });
+    $(".canjiabtn").on("touchstart click",function(){
+        $(this).closest(".detailpopup").hide();
     });
 });
